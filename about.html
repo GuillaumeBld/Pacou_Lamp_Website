@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a2a1a">
+    <title>À Propos - Les Lampes de Pacou</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Background Image Setup */
+        .desktop-view {
+            min-height: 100vh;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('assets/images/cascade-bg.jpg') center/cover no-repeat fixed;
+            position: relative;
+        }
+
+        /* About Page Specific Styles */
+        .creator-profile {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .creator-photo-frame {
+            width: 250px;
+            height: 250px;
+            /* Circle shape on the container */
+            clip-path: circle(50% at 50% 50%);
+            overflow: hidden;
+            margin: 0 auto;
+            border: none;
+            box-shadow:
+                0 0 20px rgba(180, 199, 176, 0.3),
+                0 4px 30px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            background: rgba(180, 199, 176, 0.1);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .creator-photo-frame:hover {
+            background: rgba(180, 199, 176, 0.15);
+            box-shadow:
+                0 0 25px rgba(180, 199, 176, 0.4),
+                0 6px 35px rgba(0, 0, 0, 0.25);
+            transform: translateY(-5px);
+        }
+
+        .creator-photo-frame::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 50%;
+            padding: 2px;
+            background: linear-gradient(
+                135deg,
+                rgba(255, 255, 255, 0.4),
+                rgba(255, 255, 255, 0.1)
+            );
+            -webkit-mask:
+                linear-gradient(#fff 0 0) content-box,
+                linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+
+        /* Just fill the container; no extra clip-path here */
+        .creator-photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border: none;
+        }
+
+        .creator-signature {
+            flex: 1;
+            text-align: left;
+            padding-right: 2rem;
+        }
+
+        .creator-signature p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            font-family: 'Georgia', serif;
+        }
+
+        .signature {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: var(--accent-green);
+            font-weight: 500;
+            text-align: right; /* Align signature to the right */
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            /* Adjust profile layout for mobile */
+            .creator-profile {
+                flex-direction: column;
+                text-align: center;
+                padding: 1rem;
+            }
+
+            .creator-signature {
+                padding-right: 0;
+            }
+
+            .creator-photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+
+            .signature {
+                text-align: center;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+
+            .creator-signature p {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body class="desktop-view">
+    <header>
+        <h1>Les Lampes de Pacou</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="catalog.html">Catalogue</a></li>
+            <li><a href="about.html" class="active">À Propos</a></li>
+            <li><a href="contact.html">Contactez-moi</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="section-spacing">
+            <h2>Qui suis-je ?</h2>
+            <div class="creator-profile">
+                <div class="creator-photo-frame">
+                    <img src="assets/images/creator.jpg" alt="Pacou">
+                </div>
+                <div class="creator-signature">
+                    <p style="text-indent: 2rem;">
+                        "Puéricultrice de métier et profondément attachée à la Martinique et sa nature généreuse, je nourris depuis toujours une passion pour la randonnée, le bivouac et l'artisanat. Mon goût pour la création me pousse à sublimer les trésors naturels de notre île en objets uniques et raffinés. Fascinée par la beauté brute du bois, c'est tout naturellement que j'ai choisi de partager cette passion à travers mes lampes artisanales.
+                    </p>
+                    <p>
+                        Chaque lampe que je réalise est une pièce singulière, façonnée avec soin, patience et amour. Encore débutante mais déterminée à apprendre et à m'améliorer constamment, je vous invite à découvrir des créations inspirées directement par l'âme et les paysages martiniquais, en mettant en valeur l'authenticité du bois naturel.
+                    </p>
+                    <p>
+                        Vos retours, conseils et impressions me sont très précieux. Ils me permettent de progresser, d'affiner mon savoir-faire et de mieux répondre à vos attentes. N'hésitez donc pas à me partager vos avis, ils sont essentiels à mon développement en tant qu'artisane.
+                    </p>
+                    <p>
+                        Merci infiniment pour votre confiance, au plaisir d'illuminer votre quotidien avec mes créations !"
+                    </p>
+                    <p class="signature">— Pacou</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2025 Pacou-creations. Tous droits réservés</p>
+        </div>
+    </footer>
+</body>
+</html>
