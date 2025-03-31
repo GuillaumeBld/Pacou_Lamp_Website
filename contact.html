@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<link rel="stylesheet" href="style.css" />
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a2a1a">
+    <title>Contactez-moi - Les Lampes de Pacou</title>
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS -->
+    <style>
+        /* Keep only page-specific styles here if necessary, or move all to style.css */
+
+
+        /* Background Image Setup */
+        .desktop-view {
+            min-height: 100vh;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('assets/images/cascade-bg.jpg') center/cover no-repeat fixed;
+            position: relative;
+        }
+
+        /* Contact Form Styling */
+        .contact-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-form {
+            width: 100%;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            width: 100%;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: var(--body-font);
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 8px;
+            color: var(--text-light);
+            font-family: var(--body-font);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .contact-form button[type="submit"] {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--text-light);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 0.8rem 1.6rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: var(--heading-font);
+            font-size: 1rem;
+            display: block;
+            margin: 0 auto;
+            min-width: 180px;
+        }
+
+        .contact-form button[type="submit"]:hover,
+        .contact-form button[type="submit"]:focus {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-form button[type="submit"]:active {
+            transform: translateY(0);
+        }
+
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .contact-section {
+                padding: 1rem;
+            }
+
+            .form-group label {
+                font-size: 1rem;
+            }
+
+            .form-group input,
+            .form-group textarea {
+                font-size: 0.9rem;
+            }
+
+            .contact-form button[type="submit"] {
+                font-size: 0.9rem;
+                padding: 0.6rem 1.2rem;
+                min-width: 150px;
+            }
+        }
+    </style>
+</head>
+<body class="desktop-view">
+    <header>
+        <h1>Les Lampes de Pacou</h1>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="catalog.html">Catalogue</a></li>
+            <li><a href="about.html">À Propos</a></li>
+            <li><a href="contact.html" class="active">Contactez-moi</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="contact-section">
+            <h2>Formulaire de contact</h2>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label for="name">Nom complet</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" required></textarea>
+                </div>
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <p>© 2025 Pacou-creations. Tous droits réservés</p>
+        </div>
+    </footer>
+
+    <!-- Mobile Bottom Navigation -->
+    <nav class="mobile-bottom-nav">
+        <div class="mobile-bottom-nav-container">
+            <a href="index.html" class="nav-item" aria-label="Accueil">
+                <i class="fas fa-home nav-icon"></i>
+                <span>Accueil</span>
+            </a>
+            <a href="catalog.html" class="nav-item" aria-label="Catalogue">
+                <i class="fas fa-lightbulb nav-icon"></i>
+                <span>Catalogue</span>
+            </a>
+            <a href="about.html" class="nav-item" aria-label="À Propos">
+                <i class="fas fa-user nav-icon"></i>
+                <span>À Propos</span>
+            </a>
+            <a href="contact.html" class="nav-item active" aria-label="Contact">
+                <i class="fas fa-envelope nav-icon"></i>
+                <span>Contact</span>
+            </a>
+        </div>
+    </nav>
+
+    <script src="script.js"></script> <!-- Link to external JS -->
+</body>
+</html>
