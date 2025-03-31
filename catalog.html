@@ -17,7 +17,7 @@
             min-height: 100vh;
             background: 
                 linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('assets/images/cascade-bg.jpg') center/cover no-repeat fixed;
+                url('https://pacou-creations.com/assets/images/cascade-bg.jpg') center/cover no-repeat fixed;
             position: relative;
         }
 
@@ -50,6 +50,11 @@
             border-radius: 8px;
             padding: 1.5rem;
             margin: 0 2rem;
+            display: none; /* Hide all slides by default */
+        }
+
+        .lamp-slide.active {
+            display: block; /* Show only the active slide */
         }
 
         /* Image Slider Styles */
@@ -105,9 +110,6 @@
             z-index: 10;
             transition: all 0.3s ease;
         }
-
-
-
 
         /* Enhanced Lamp Details & Other Styles (unchanged) */
         .lamp-title {
@@ -285,7 +287,6 @@
                 transform: translateY(0);
             }
         }
-
     </style>
 </head>
 <body class="desktop-view">
@@ -311,13 +312,13 @@
             </div>
             
             <!-- Lamp Slides -->
-            <div class="lamp-slide">
+            <div class="lamp-slide" data-index="0">
               <h3 class="lamp-title">Lampe 1</h3>
               <div class="lamp-images-slider">
                   <div class="lamp-images-track">
-                      <img src="assets/images/rustic-1.webp" alt="Lampe 1 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 1 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 1 - Vue 3">
+                      <img src="https://pacou-creations.com/assets/images/rustic-1.webp" alt="Lampe 1 - Vue 1">
+                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 1 - Vue 2">
+                      <img src="https://pacou-creations.com/assets/images/lamp2.jpg" alt="Lampe 1 - Vue 3">
                   </div>
                   <button class="slider-prev">‹</button>
                   <button class="slider-next">›</button>
@@ -338,18 +339,19 @@
                       </button>
                   </div>
                   <div class="lamp-description">
-                      <p>Une lampe au design rustique qui apporte chaleur et caractère à votre intérieur. La Lampe Rustique est façonnée avec des matériaux naturels.</p>Son design chaleureux s'inspire des traditions rurales, avec des finitions brutes qui révèlent la beauté naturelle du bois.</p>
+                      <p>Une lampe au design rustique qui apporte chaleur et caractère à votre intérieur. La Lampe Rustique est façonnée avec des matériaux naturels.</p>
+                      <p>Son design chaleureux s'inspire des traditions rurales, avec des finitions brutes qui révèlent la beauté naturelle du bois.</p>
                   </div>
               </div>
           </div>
 
-          <div class="lamp-slide">
+          <div class="lamp-slide" data-index="1">
               <h3 class="lamp-title">Lampe 2</h3>
               <div class="lamp-images-slider">
                   <div class="lamp-images-track">
-                      <img src="assets/images/rustic-2.webp" alt="Lampe 2 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 2 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 2 - Vue 3">
+                      <img src="https://pacou-creations.com/assets/images/rustic-2.webp" alt="Lampe 2 - Vue 1">
+                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 2 - Vue 2">
+                      <img src="https://pacou-creations.com/assets/images/lamp2.jpg" alt="Lampe 2 - Vue 3">
                   </div>
                   <button class="slider-prev">‹</button>
                   <button class="slider-next">›</button>
@@ -370,18 +372,19 @@
                       </button>
                   </div>
                   <div class="lamp-description">
-                      <p>Une lampe contemporaine au design épuré, parfaite pour les intérieurs 2s. La Lampe 2 allie élégance et fonctionnalité.<p>Ses lignes géométriques et ses matériaux soigneusement sélectionnés en font une pièce unique qui sublime votre espace.</p>
+                      <p>Une lampe contemporaine au design épuré, parfaite pour les intérieurs 2s. La Lampe 2 allie élégance et fonctionnalité.</p>
+                      <p>Ses lignes géométriques et ses matériaux soigneusement sélectionnés en font une pièce unique qui sublime votre espace.</p>
                   </div>
               </div>
           </div>
 
-          <div class="lamp-slide">
+          <div class="lamp-slide" data-index="2">
               <h3 class="lamp-title">Lampe 3</h3>
               <div class="lamp-images-slider">
                   <div class="lamp-images-track">
-                      <img src="assets/images/rustic-3.webp" alt="Lampe 3 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 3 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 3 - Vue 3">
+                      <img src="https://pacou-creations.com/assets/images/rustic-3.webp" alt="Lampe 3 - Vue 1">
+                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 3 - Vue 2">
+                      <img src="https://pacou-creations.com/assets/images/lamp2.jpg" alt="Lampe 3 - Vue 3">
                   </div>
                   <button class="slider-prev">‹</button>
                   <button class="slider-next">›</button>
@@ -402,18 +405,19 @@
                       </button>
                   </div>
                   <div class="lamp-description">
-                      <p>Une lampe inspirée des designs rétro des années 50, restaurée avec des matériaux contemporains pour une durabilité optimale.</p>Son charme intemporel et son éclat chaleureux en font une pièce centrale qui attire tous les regards.</p>
+                      <p>Une lampe inspirée des designs rétro des années 50, restaurée avec des matériaux contemporains pour une durabilité optimale.</p>
+                      <p>Son charme intemporel et son éclat chaleureux en font une pièce centrale qui attire tous les regards.</p>
                   </div>
               </div>
           </div>
 
-          <div class="lamp-slide">
+          <div class="lamp-slide" data-index="3">
               <h3 class="lamp-title">Lampe 4</h3>
               <div class="lamp-images-slider">
                   <div class="lamp-images-track">
-                      <img src="assets/images/rustic-1.webp" alt="Lampe 4 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 4 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 4 - Vue 3">
+                      <img src="https://pacou-creations.com/assets/images/rustic-1.webp" alt="Lampe 4 - Vue 1">
+                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 4 - Vue 2">
+                      <img src="https://pacou-creations.com/assets/images/lamp2.jpg" alt="Lampe 4 - Vue 3">
                   </div>
                   <button class="slider-prev">‹</button>
                   <button class="slider-next">›</button>
@@ -434,153 +438,26 @@
                       </button>
                   </div>
                   <div class="lamp-description">
-                      <p>Une lampe au design organique qui s'inspire des formes naturelles. La Lampe 4 apporte une touche de modernité tout en conservant un aspect chaleureux.<p>Ses courbes douces et ses matériaux nobles en font une pièce unique qui s'intègre parfaitement dans tout intérieur contemporain.</p>
+                      <p>Une lampe au design organique qui s'inspire des formes naturelles. La Lampe 4 apporte une touche de modernité tout en conservant un aspect chaleureux.</p>
+                      <p>Ses courbes douces et ses matériaux nobles en font une pièce unique qui s'intègre parfaitement dans tout intérieur contemporain.</p>
                   </div>
               </div>
           </div>
 
-          <div class="lamp-slide">
-              <h3 class="lamp-title">Lampe 5</h3>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="assets/images/rustic-2.webp" alt="Lampe 5 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 5 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 5 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 240 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>Une lampe minimaliste avec un design épuré et des lignes géométriques. La Lampe 5 apporte une touche d'élégance moderne à votre intérieur.<p>Son design sobre et ses matériaux de qualité en font une pièce intemporelle qui s'adapte à tous les styles de décoration.</p>
-                  </div>
-              </div>
+          <!-- Right Arrow -->
+          <div class="arrow-container right-arrow-container">
+              <button class="arrow-btn">›</button>
+              <div class="arrow-text"> Lampe suivante</div>
           </div>
+      </div>
+  </main>
 
-          <div class="lamp-slide">
-              <h3 class="lamp-title">Lampe 6</h3>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="assets/images/rustic-3.webp" alt="Lampe 6 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 6 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 6 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 270 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>Une lampe au design sculptural qui allie art et fonctionnalité. La Lampe 6 est une véritable pièce de collection.<p>Ses formes audacieuses et son équilibre parfait en font une œuvre d'art lumineuse qui transforme votre espace.</p>
-                  </div>
-              </div>
-          </div>
+  <footer class="site-footer">
+      <div class="footer-content">
+          <p>© 2025 Pacou-creations. Tous droits réservés</p>
+      </div>
+  </footer>
 
-          <div class="lamp-slide">
-              <h3 class="lamp-title">Lampe 7</h3>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="assets/images/rustic-1.webp" alt="Lampe 7 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 7 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 7 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 300 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>Une lampe exceptionnelle combinant artisanat traditionnel et design contemporain. La Lampe 7 est un hommage au savoir-faire artisanal.<p>Chaque détail a été pensé pour créer une pièce unique qui allie esthétique et fonctionnalité.</p>
-                  </div>
-              </div>
-          </div>
-
-          <div class="lamp-slide">
-              <h3 class="lamp-title">Lampe 8</h3>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="assets/images/rustic-2.webp" alt="Lampe 8 - Vue 1">
-                      <img src="assets/images/lamp1.jpg" alt="Lampe 8 - Vue 2">
-                      <img src="assets/images/lamp2.jpg" alt="Lampe 8 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 330 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>La Lampe 8 représente l'apogée de notre collection, avec un design avant-gardiste qui repousse les limites de la créativité.<p>Cette pièce exclusive est produite en édition limitée, faisant d'elle un véritable objet de collection.</p>
-                  </div>
-              </div>
-          </div>
-
-            <!-- Right Arrow -->
-            <div class="arrow-container right-arrow-container">
-                <button class="arrow-btn">›</button>
-                <div class="arrow-text"> Lampe suivante</div>
-            </div>
-        </div>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>© 2025 Pacou-creations. Tous droits réservés</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
