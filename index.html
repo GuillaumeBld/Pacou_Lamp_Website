@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#1a2a1a">
+    <title>Accueil - Les Lampes de Pacou</title>
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <!-- Main Stylesheet -->
+    <link rel="stylesheet" href="style.css">
+    
+    <script type="module" src="https://unpkg.com/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
+    <script>
+        window.addEventListener('load', function() {
+            console.log('Model-viewer elements:', document.querySelectorAll('model-viewer'));
+            document.querySelectorAll('model-viewer').forEach(function(viewer) {
+                console.log('Viewer src:', viewer.src);
+                viewer.addEventListener('error', function(e) {
+                    console.error('Model-viewer error:', e.detail);
+                });
+                viewer.addEventListener('load', function() {
+                    console.log('Model loaded successfully');
+                });
+            });
+        });
+    </script>
+    
+    <style>
+        /* Import Fonts */
+        @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lora:wght@400;500&display=swap');
+
+        /* Base Styles */
+        :root {
+            --bg-dark: #1a2a1a;
+            --text-light: #e8e5d8;
+            --accent-green: #b4c7b0;
+            --shadow-dark: rgba(0, 0, 0, 0.5);
+            --glass-dark: rgba(50, 50, 50, 0.4);
+            --glass-light: rgba(255, 255, 255, 0.1);
+            --heading-font: 'Cormorant Garamond', serif;
+            --body-font: 'Lora', serif;
+        }
+
+        /* Reset Base Elements */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: transparent;
+            overflow-x: hidden;
+            font-family: var(--body-font);
+            color: var(--text-light);
+        }
+
+        /* Background Image Setup */
+        .desktop-view {
+            min-height: 100vh;
+            background: 
+                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+                url('assets/images/cascade-bg.jpg') center/cover no-repeat fixed;
+            position: relative;
+            z-index: 1;
+        }
+        /* Typography */
+        h2 {
+            font-family: var(--heading-font);
+            font-weight: 400;
+            color: var(--text-light);
+            text-shadow: 1px 1px 3px var(--shadow-dark);
+            text-align: center;
+            font-size: 2.5rem;
+            position: relative;
+            margin-bottom: 2rem;
+        }
+
+        h2::after {
+            content: '';
+            width: 60px;
+            height: 2px;
+            background-color: rgba(255, 255, 255, 0.3);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 1px;
+        }
+
+        h3 {
+            font-family: var(--heading-font);
+            font-weight: 400;
+            color: var(--text-light);
+            font-size: 1.5rem;
+            margin: 1rem 0;
+            text-align: center;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* Section Spacing */
+        .section-spacing {
+            margin: 3rem 0;
+            padding: 2rem;
+        }
+
+        /* Products Section */
+        .products {
+            padding: 3rem 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .product-card-container {
+            position: relative;
+            perspective: 1000px;
+        }
+
+        .product-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 35px rgba(0, 0, 0, 0.2);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+        }
+
+        model-viewer {
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Footer Styles */
+        .site-footer {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 2rem;
+        }
+
+        .footer-content {
+            margin: 0;
+        }
+
+        .footer-content p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            opacity: 0.8;
+        }
+
+        /* Remove fixed footer padding */
+        main {
+            padding-bottom: 0;
+        }
+
+
+    </style>
+</head>
+<body>
+    <!-- Desktop and Mobile (Unified Navigation) -->
+    <div class="desktop-view">
+        <header>
+            <h1>Les Lampes de Pacou</h1>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Accueil</a></li>
+                <li><a href="catalog.html">Catalogue</a></li>
+                <li><a href="about.html">À Propos</a></li>
+                <li><a href="contact.html">Contactez-moi</a></li>
+            </ul>
+        </nav>
+
+        <main>
+            <section id="home" class="hero section-spacing">
+                <div class="hero-content">
+                    <h2 class="subtitle">Chaque lampe est unique, fabriquée avec amour<br>à partir d'éléments naturels provenant de la Martinique</h2>
+                </div>
+            </section>
+
+            <section id="products" class="products section-spacing">
+                <div class="product-grid">
+                    <!-- Product 1 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=1'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Artisanale en Bois"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 1</h3>
+                        </div>
+                    </div>
+
+                    <!-- Product 2 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=2'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Design Contemporain"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 2</h3>
+                        </div>
+                    </div>
+
+                    <!-- Product 3 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=3'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Vintage Années 50"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 3</h3>
+                        </div>
+                    </div>
+
+                    <!-- Product 4 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=4'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Industrielle"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 4</h3>
+                        </div>
+                    </div>
+
+                    <!-- Product 5 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=5'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Minimaliste"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 5</h3>
+                        </div>
+                    </div>
+
+                    <!-- Product 6 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=6'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Scandinave"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 6</h3>
+                        </div>
+                    </div>
+
+                    <!-- Product 7 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=7'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Moderne"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 7</h3>
+                        </div>
+                    </div>
+
+                    <!-- Product 8 -->
+                    <div class="product-card-container" onclick="window.location.href='catalog.html?lamp=8'">
+                        <div class="product-card">
+                            <div class="product-image">
+                                <model-viewer 
+                                  src="assets/models/lamp1.glb"
+                                  alt="3D Lamp - Rustique"
+                                  camera-controls
+                                  auto-rotate
+                                  interaction-prompt="none"
+                                  camera-orbit="90deg 75deg 105%"
+                                  style="width: 100%; height: 100%;">
+                                </model-viewer>
+                            </div>
+                            <h3>Lampe 8</h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <p>© 2025 Pacou-creations. Tous droits réservés</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
