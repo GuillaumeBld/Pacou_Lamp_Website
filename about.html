@@ -30,9 +30,9 @@
         .creator-photo-frame {
             width: 250px;
             height: 250px;
-            /* Circle shape on the container */
-            clip-path: circle(50% at 50% 50%);
-            overflow: hidden;
+            /* Remove circular clip to respect logo transparency */
+            clip-path: none;
+            overflow: visible;
             margin: 0 auto;
             border: none;
             box-shadow:
@@ -40,7 +40,7 @@
                 0 4px 30px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            background: rgba(180, 199, 176, 0.1);
+            background: transparent;
             position: relative;
             transition: all 0.3s ease;
         }
@@ -54,22 +54,7 @@
         }
 
         .creator-photo-frame::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            padding: 2px;
-            background: linear-gradient(
-                135deg,
-                rgba(255, 255, 255, 0.4),
-                rgba(255, 255, 255, 0.1)
-            );
-            -webkit-mask:
-                linear-gradient(#fff 0 0) content-box,
-                linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            pointer-events: none;
+            content: none;
         }
 
         /* Just fill the container; no extra clip-path here */
@@ -78,6 +63,9 @@
             height: 100%;
             object-fit: cover;
             border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            mix-blend-mode: multiply;
         }
 
         .creator-signature {
@@ -156,9 +144,6 @@
         <section class="section-spacing">
             <h2>Qui sommes nous ?</h2>
             <div class="creator-profile">
-                <div class="creator-photo-frame">
-                    <img src="https://pacou-creations.com/assets/images/creator.jpg" alt="Pacou">
-                </div>
 <div class="creator-signature">
     <p>Lespwi Dacou, c’est avant tout une envie commune : mettre en lumière la beauté brute et généreuse de la nature martiniquaise.</p>
     <p>Nés d’une passion partagée pour la randonnée, le bivouac et l’artisanat, nos créations sont une réponse à l’émerveillement que nous ressentons chaque fois que nos pas croisent un arbre majestueux, un morceau de bois oublié ou une roche silencieuse. Là où certains voient des restes, nous voyons des trésors.</p>
