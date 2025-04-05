@@ -12,25 +12,6 @@
     <style>
         /* Page-specific styles only */
 
-        /* Background Image Setup */
-        .desktop-view {
-            min-height: 100vh;
-            background: 
-                linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-                url('https://pacou-creations.com/assets/images/cascade-bg.jpg') center/cover no-repeat fixed;
-            position: relative;
-        }
-
-        .desktop-view::before {
-            content: "";
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: inherit;
-            z-index: -1;
-        }
 
         /* Carousel Styles */
         .lamp-carousel {
@@ -313,7 +294,11 @@
             
             <!-- Lamp Slides -->
             <div class="lamp-slide" data-index="0">
-              <h3 class="lamp-title">Lampe 1</h3>
+              <div style="display:flex; align-items:center; justify-content:center; gap:1rem;">
+                <button id="prev-lamp" style="display:none;">‹</button>
+                <h3 class="lamp-title">Lampe 1</h3>
+                <button id="next-lamp" style="display:none;">›</button>
+              </div>
               <div class="lamp-images-slider">
                   <div class="lamp-images-track">
                       <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 1 - Vue 1">
@@ -437,6 +422,46 @@
                   <div class="lamp-description">
                       <p>Une lampe au design organique qui s'inspire des formes naturelles. La Lampe 4 apporte une touche de modernité tout en conservant un aspect chaleureux.<p>Ses courbes douces et ses matériaux nobles en font une pièce unique qui s'intègre parfaitement dans tout intérieur contemporain.</p>
                   </div>
+              </div>
+          </div>
+
+          <!-- Right Arrow -->
+          <div class="arrow-container right-arrow-container">
+              <button class="arrow-btn">›</button>
+              <div class="arrow-text"> Lampe suivante</div>
+          </div>
+      </div>
+  </main>
+
+  <footer class="site-footer">
+      <div class="footer-content">
+          <p>© 2025 Pacou-creations. Tous droits réservés</p>
+      </div>
+  </footer>
+
+  <script>
+    const lampTitles = ["Lampe 1", "Lampe 2", "Lampe 3"];
+    let currentLampIndex = 0;
+
+    function updateLampTitle() {
+      document.querySelector('.lamp-title').textContent = lampTitles[currentLampIndex];
+    }
+
+    document.getElementById('prev-lamp').onclick = () => {
+      currentLampIndex = (currentLampIndex - 1 + lampTitles.length) % lampTitles.length;
+      updateLampTitle();
+    };
+
+    document.getElementById('next-lamp').onclick = () => {
+      currentLampIndex = (currentLampIndex + 1) % lampTitles.length;
+      updateLampTitle();
+    };
+
+    updateLampTitle();
+  </script>
+
+  <script src="catalog.js"></script>
+</body>
               </div>
           </div>
 
