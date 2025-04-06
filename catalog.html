@@ -23,11 +23,21 @@
 
 <main>
 <div id="lamp-container" style="max-width: 800px; margin: 2rem auto; background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; box-shadow: 0 4px 30px rgba(0,0,0,0.2); text-align: center;">
-  <h2 id="lamp-title" style="margin-bottom: 1rem;">Lampe</h2>
-  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
-    <button id="prev-img">‹</button>
+  <div class="title-nav" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-bottom: 1rem;">
+    <div id="prev-lamp" class="arrow">
+      &#8249;
+      <div class="arrow-label">Lampe précédente</div>
+    </div>
+    <h2 id="lamp-title" style="margin: 0;">Lampe</h2>
+    <div id="next-lamp" class="arrow">
+      &#8250;
+      <div class="arrow-label">Lampe suivante</div>
+    </div>
+  </div>
+  <div class="image-slider" style="position: relative; display: flex; justify-content: center; align-items: center; margin-bottom: 1rem;">
+    <button id="prev-img" class="img-arrow" style="position: absolute; left: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); border: none; border-radius: 50%; color: #fff; font-size: 1.5rem; cursor: pointer; display: none;">‹</button>
     <img id="lamp-image" src="" alt="Lampe" style="max-width: 300px; border-radius: 8px;" />
-    <button id="next-img">›</button>
+    <button id="next-img" class="img-arrow" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: rgba(0,0,0,0.3); border: none; border-radius: 50%; color: #fff; font-size: 1.5rem; cursor: pointer; display: none;">›</button>
   </div>
   <p id="lamp-price" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;"></p>
   <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
@@ -39,8 +49,6 @@
   </div>
 </div>
 
-<button id="prev-lamp" style="position: fixed; top: 50%; left: 20px; transform: translateY(-50%); background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">‹ Lampe précédente</button>
-<button id="next-lamp" style="position: fixed; top: 50%; right: 20px; transform: translateY(-50%); background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">Lampe suivante ›</button>
 </main>
 
 <footer class="site-footer">
@@ -84,28 +92,49 @@ fetch('data/products.json?v=' + Date.now())
 function renderLamp() {
   if (!lamps.length) return;
 
-  const lamp = lamps[currentLampIndex];
-  const title = document.getElementById('lamp-title');
-  const image = document.getElementById('lamp-image');
-  const price = document.getElementById('lamp-price');
-  const desc1 = document.getElementById('lamp-desc1');
-  const buyButton = document.querySelector('button[style*="background: #4CAF50"]');
+  const container = document.getElementById('lamp-container');
+  container.classList.add('fade');
 
-  title.textContent = lamp.name || 'Lampe';
-  if (lamp.images && lamp.images.length > 0) {
-    currentImageIndex = currentImageIndex % lamp.images.length;
-    image.src = lamp.images[currentImageIndex];
-  } else {
-    image.src = 'https://via.placeholder.com/300x400?text=No+Image';
-  }
-  price.textContent = lamp.price ? `Prix: ${lamp.price} €` : '';
-  desc1.textContent = lamp.description || 'Description à venir.';
+  setTimeout(() => {
+    const lamp = lamps[currentLampIndex];
+    const title = document.getElementById('lamp-title');
+    const image = document.getElementById('lamp-image');
+    const price = document.getElementById('lamp-price');
+    const desc1 = document.getElementById('lamp-desc1');
+    const buyButton = document.querySelector('button[style*="background: #4CAF50"]');
+    const prevImgBtn = document.getElementById('prev-img');
+    const nextImgBtn = document.getElementById('next-img');
 
-  if (lamp.price && lamp.price > 0) {
-    buyButton.style.display = '';
-  } else {
-    buyButton.style.display = 'none';
-  }
+    title.textContent = lamp.name || 'Lampe';
+
+    if (lamp.images && lamp.images.length > 0) {
+      currentImageIndex = currentImageIndex % lamp.images.length;
+      image.src = lamp.images[currentImageIndex];
+
+      if (lamp.images.length > 1) {
+        prevImgBtn.style.display = 'block';
+        nextImgBtn.style.display = 'block';
+      } else {
+        prevImgBtn.style.display = 'none';
+        nextImgBtn.style.display = 'none';
+      }
+    } else {
+      image.src = 'https://via.placeholder.com/300x400?text=No+Image';
+      prevImgBtn.style.display = 'none';
+      nextImgBtn.style.display = 'none';
+    }
+
+    price.textContent = lamp.price ? `Prix: ${lamp.price} €` : '';
+    desc1.textContent = lamp.description || 'Description à venir.';
+
+    if (lamp.price && lamp.price > 0) {
+      buyButton.style.display = '';
+    } else {
+      buyButton.style.display = 'none';
+    }
+
+    container.classList.remove('fade');
+  }, 200);
 }
 
 document.getElementById('prev-img').onclick = () => {
@@ -135,3 +164,4 @@ document.getElementById('next-lamp').onclick = () => {
   renderLamp();
 };
 </script>
+</file>

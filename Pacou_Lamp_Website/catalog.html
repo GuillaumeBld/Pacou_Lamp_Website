@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Catalogue - Lespwi Dacou</title>
 <link rel="stylesheet" href="style.css" />
+<script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
 </head>
 <body class="desktop-view">
 <header>
@@ -44,6 +45,10 @@
   <div id="lamp-details" style="margin-bottom: 1rem; font-size: 0.95rem; color: #eee;"></div>
 
   <div id="lamp-colors" style="margin-bottom: 1rem; display: flex; justify-content: center; gap: 0.5rem;"></div>
+
+  <model-viewer id="lamp-3d" style="margin: 1rem auto; display: none; width: 100%; max-width: 400px; height: 400px; background: rgba(255,255,255,0.05); border-radius: 8px;"
+    camera-controls auto-rotate ar ar-modes="webxr scene-viewer quick-look" shadow-intensity="1" exposure="1" alt="Modèle 3D de la lampe">
+  </model-viewer>
 
   <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
     <p id="lamp-desc1" style="flex: 1; min-width: 200px; line-height: 1.6;"></p>
@@ -98,6 +103,7 @@ function renderLamp() {
   const rating = document.getElementById('lamp-rating');
   const details = document.getElementById('lamp-details');
   const colors = document.getElementById('lamp-colors');
+  const modelViewer = document.getElementById('lamp-3d');
 
   title.textContent = lamp.name;
   image.src = lamp.images[currentImageIndex] || 'https://via.placeholder.com/300x400?text=No+Image';
@@ -140,6 +146,16 @@ function renderLamp() {
     ).join('');
   } else {
     colors.innerHTML = '';
+  }
+
+  // 3D model viewer
+  const modelPath = `assets/models/lamp${lamp.id}.glb`;
+  const availableModelIds = [1,2,3,4,5,6,7,8]; // update if more models added
+  if (availableModelIds.includes(lamp.id)) {
+    modelViewer.src = modelPath;
+    modelViewer.style.display = 'block';
+  } else {
+    modelViewer.style.display = 'none';
   }
 
   desc1.textContent = lamp.description || 'Description à venir.';
