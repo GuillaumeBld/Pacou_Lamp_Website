@@ -114,7 +114,7 @@
     {
       "id": 9,
       "name": "Lampe 9",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-9.jpg"],
       "details": [],
@@ -127,7 +127,7 @@
     {
       "id": 10,
       "name": "Lampe 10",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-10.jpg"],
       "details": [],
@@ -140,7 +140,7 @@
     {
       "id": 11,
       "name": "Lampe 11",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-11.jpg"],
       "details": [],
@@ -153,7 +153,7 @@
     {
       "id": 12,
       "name": "Lampe 12",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-12.jpg"],
       "details": [],
@@ -166,7 +166,7 @@
     {
       "id": 13,
       "name": "Lampe 13",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-13.jpg"],
       "details": [],
@@ -179,7 +179,7 @@
     {
       "id": 14,
       "name": "Lampe 14",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-14.jpg"],
       "details": [],
@@ -192,7 +192,7 @@
     {
       "id": 15,
       "name": "Lampe 15",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-15.jpg"],
       "details": [],
@@ -205,7 +205,7 @@
     {
       "id": 16,
       "name": "Lampe 16",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-16.jpg"],
       "details": [],
@@ -218,7 +218,7 @@
     {
       "id": 17,
       "name": "Lampe 17",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-17.jpg"],
       "details": [],
@@ -231,7 +231,7 @@
     {
       "id": 18,
       "name": "Lampe 18",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-18.jpg"],
       "details": [],
@@ -244,7 +244,7 @@
     {
       "id": 19,
       "name": "Lampe 19",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-19.jpg"],
       "details": [],
@@ -257,7 +257,7 @@
     {
       "id": 20,
       "name": "Lampe 20",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-20.jpg"],
       "details": [],
@@ -270,7 +270,7 @@
     {
       "id": 21,
       "name": "Lampe 21",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-21.jpg"],
       "details": [],
@@ -283,7 +283,7 @@
     {
       "id": 22,
       "name": "Lampe 22",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-22.jpg"],
       "details": [],
@@ -296,7 +296,7 @@
     {
       "id": 23,
       "name": "Lampe 23",
-      "price": 0,
+      "price": 100,
       "description": "",
       "images": ["assets/Lamps/lampe-23.jpg"],
       "details": [],
@@ -308,7 +308,7 @@
     },
     {
       "id": 24,
-      "name": "Lampe 24",
+      "name": "",
       "price": 0,
       "description": "",
       "images": [],

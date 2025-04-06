@@ -2,483 +2,136 @@
 <html lang="fr">
 <link rel="stylesheet" href="style.css" />
 <head>
-    <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#1a2a1a">
-    <title>Catalogue - Lespwi Dacou</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
-    <link rel="stylesheet" href="style.css">
-    <style>
-        /* Page-specific styles only */
-
-
-        /* Carousel Styles */
-        .lamp-carousel {
-            position: relative;
-            max-width: 800px;
-            margin: 3rem auto;
-            padding: 1rem;
-            text-align: center;
-        }
-
-        .lamp-slide {
-            position: relative;
-            background: rgba(255,255,255,0.1);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin: 0 2rem;
-            display: none; /* Hide all slides by default */
-        }
-
-        .lamp-slide.active {
-            display: block; /* Show only the active slide */
-        }
-
-        /* Image Slider Styles */
-        .lamp-images-slider {
-            position: relative;
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-        }
-
-        .lamp-images-track {
-            display: flex;
-            transition: transform 0.5s ease;
-        }
-
-        .lamp-images-track img {
-            width: 100%;
-            flex-shrink: 0;
-            height: auto;
-            border-radius: 4px;
-        }
-        
-        /* Style for single lamp images (Lamp 2 and 3) */
-        .lamp-image {
-            width: 100%;
-            overflow: hidden;
-            margin-bottom: 1rem;
-            border-radius: 4px;
-        }
-        
-        .lamp-image img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-            object-fit: contain;
-            max-height: 400px; /* Set a max height to match the slider */
-        }
-
-        .slider-prev,
-        .slider-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(0,0,0,0.5);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10;
-            transition: all 0.3s ease;
-        }
-
-        /* Enhanced Lamp Details & Other Styles (unchanged) */
-        .lamp-title {
-            font-family: var(--heading-font);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            letter-spacing: 0.5px;
-        }
-
-        .lamp-details:hover {
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3),
-                        inset 0 1px 2px rgba(255, 255, 255, 0.15);
-        }
-
-        .price-container {
-            display: inline-flex;
-            align-items: center;
-            background: rgba(180, 199, 176, 0.15);
-            border: 1px solid rgba(180, 199, 176, 0.3);
-            border-radius: 12px;
-            padding: 0.8rem 1.5rem;
-            margin: 1rem auto 1.5rem;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            animation: priceReveal 0.8s ease forwards;
-        }
-
-        .price-container:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
-        }
-
-        .price-icon {
-            margin-right: 0.8rem;
-            font-size: 1.2rem;
-            color: var(--accent-green);
-        }
-
-        .price-value {
-            font-family: var(--heading-font);
-            font-size: 1.8rem;
-            font-weight: 500;
-            color: var(--text-light);
-            letter-spacing: 0.5px;
-        }
-
-        .button-group {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .buy-btn,
-        .offer-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.9rem 1.8rem;
-            border-radius: 12px;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-            font-family: var(--heading-font);
-            font-size: 1.1rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            min-width: 160px;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .btn-icon {
-            margin-right: 0.6rem;
-            font-size: 1.2rem;
-        }
-
-        .buy-btn {
-            background: rgba(180, 199, 176, 0.25);
-            color: var(--text-light);
-        }
-
-        .offer-btn {
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--accent-green);
-        }
-
-        .buy-btn:hover,
-        .offer-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-        }
-
-        .buy-btn:hover {
-            background: rgba(180, 199, 176, 0.4);
-        }
-
-        .offer-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .buy-btn:active,
-        .offer-btn:active {
-            transform: translateY(1px);
-        }
-
-        .btn-ripple {
-            position: absolute;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple 0.6s linear;
-            pointer-events: none;
-        }
-
-        @keyframes ripple {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        .lamp-description {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            color: var(--text-light);
-            margin-top: 2rem;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            letter-spacing: 0.3px;
-            position: relative;
-            padding-top: 1.5rem;
-        }
-
-        .lamp-description::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 60px;
-            height: 2px;
-            background: var(--accent-green);
-            opacity: 0.6;
-        }
-
-        @media (min-width: 768px) {
-            .lamp-description {
-                display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 2rem;
-                text-align: left;
-                padding-top: 2rem;
-            }
-            
-            .lamp-description::before {
-                left: 0;
-                transform: none;
-                width: 80px;
-            }
-            
-            .lamp-description p:first-child {
-                margin-top: 0;
-            }
-        }
-
-        @keyframes priceReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-    </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Catalogue - Lespwi Dacou</title>
+<link rel="stylesheet" href="style.css" />
 </head>
 <body class="desktop-view">
-    <header>
-        <h1>Lespwi Dacou</h1>
-    </header>
+<header>
+<h1><a href="index.html">Lespwi Dacou</a></h1>
+</header>
 
-    <nav>
-        <ul>
-            <li><a href="index.html">Accueil</a></li>
-            <li><a href="catalog.html" class="active">Catalogue</a></li>
-            <li><a href="about.html">À Propos</a></li>
-            <li><a href="contact.html">Contactez-moi</a></li>
-        </ul>
-    </nav>
+<nav>
+<ul>
+<li><a href="index.html">Accueil</a></li>
+<li><a href="catalog.html" class="active">Catalogue</a></li>
+<li><a href="about.html">À Propos</a></li>
+<li><a href="contact.html">Contactez-moi</a></li>
+</ul>
+</nav>
 
-    <main>
-        <div class="lamp-carousel">
-            <!-- Left Arrow -->
-            <div class="arrow-container left-arrow-container">
-                <button class="arrow-btn">‹</button>
-                <div class="arrow-text"> Lampe précédente</div>
-            </div>
-            
-            <!-- Lamp Slides -->
-            <div class="lamp-slide" data-index="0">
-              <div style="display:flex; align-items:center; justify-content:center; gap:1rem;">
-                <button id="prev-lamp" style="display:none;">‹</button>
-                <h3 class="lamp-title">Lampe 1</h3>
-                <button id="next-lamp" style="display:none;">›</button>
-              </div>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 1 - Vue 1">
-                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 1 - Vue 2">
-                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 1 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 120 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>Une lampe au design rustique qui apporte chaleur et caractère à votre intérieur. La Lampe Rustique est façonnée avec des matériaux naturels.<p>Son design chaleureux s'inspire des traditions rurales, avec des finitions brutes qui révèlent la beauté naturelle du bois.</p>
-                  </div>
-              </div>
-          </div>
+<main>
+<div id="lamp-container" style="max-width: 800px; margin: 2rem auto; background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-radius: 16px; padding: 2rem; box-shadow: 0 4px 30px rgba(0,0,0,0.2); text-align: center;">
+  <h2 id="lamp-title" style="margin-bottom: 1rem;">Lampe</h2>
+  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+    <button id="prev-img">‹</button>
+    <img id="lamp-image" src="" alt="Lampe" style="max-width: 300px; border-radius: 8px;" />
+    <button id="next-img">›</button>
+  </div>
+  <p id="lamp-price" style="font-size: 1.2rem; font-weight: bold; margin-bottom: 1rem;"></p>
+  <div style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 1rem;">
+    <button style="padding: 0.75rem 1.5rem; border: none; border-radius: 8px; background: #4CAF50; color: #fff; cursor: pointer;">Acheter</button>
+    <button style="padding: 0.75rem 1.5rem; border: none; border-radius: 8px; background: #ccc; color: #333; cursor: pointer;">Faire une offre</button>
+  </div>
+  <div style="display: flex; flex-wrap: wrap; gap: 2rem; justify-content: center;">
+    <p id="lamp-desc1" style="flex: 1; min-width: 200px; line-height: 1.6;"></p>
+  </div>
+</div>
 
-          <div class="lamp-slide" data-index="1">
-              <h3 class="lamp-title">Lampe 2</h3>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="https://pacou-creations.com/assets/images/rustic-1.webp" alt="Lampe 2 - Vue 1">
-                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 2 - Vue 2">
-                      <img src="https://pacou-creations.com/assets/images/lamp2.jpg" alt="Lampe 2 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 150 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>Une lampe contemporaine au design épuré, parfaite pour les intérieurs 2s. La Lampe 2 allie élégance et fonctionnalité.<p>Ses lignes géométriques et ses matériaux soigneusement sélectionnés en font une pièce unique qui sublime votre espace.</p>
-                  </div>
-              </div>
-          </div>
+<button id="prev-lamp" style="position: fixed; top: 50%; left: 20px; transform: translateY(-50%); background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">‹ Lampe précédente</button>
+<button id="next-lamp" style="position: fixed; top: 50%; right: 20px; transform: translateY(-50%); background: none; border: none; color: #fff; font-size: 1.5rem; cursor: pointer;">Lampe suivante ›</button>
+</main>
 
-          <div class="lamp-slide" data-index="2">
-              <h3 class="lamp-title">Lampe 3</h3>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="..images/rustic-3.webp" alt="Lampe 3 - Vue 1">
-                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 3 - Vue 2">
-                      <img src="https://pacou-creations.com/assets/images/lamp2.jpg" alt="Lampe 3 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 180 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>Une lampe inspirée des designs rétro des années 50, restaurée avec des matériaux contemporains pour une durabilité optimale.<p>Son charme intemporel et son éclat chaleureux en font une pièce centrale qui attire tous les regards.</p>
-                  </div>
-              </div>
-          </div>
+<footer class="site-footer">
+<div class="footer-content">
+<p>© 2025 Pacou-creations. Tous droits réservés</p>
+</div>
+</footer>
 
-          <div class="lamp-slide" data-index="3">
-              <h3 class="lamp-title">Lampe 4</h3>
-              <div class="lamp-images-slider">
-                  <div class="lamp-images-track">
-                      <img src="...assets/images/rustic-1.webp" alt="Lampe 4 - Vue 1">
-                      <img src="https://pacou-creations.com/assets/images/lamp1.jpg" alt="Lampe 4 - Vue 2">
-                      <img src="https://pacou-creations.com/assets/images/lamp2.jpg" alt="Lampe 4 - Vue 3">
-                  </div>
-                  <button class="slider-prev">‹</button>
-                  <button class="slider-next">›</button>
-              </div>
-              <div class="lamp-details">
-                  <div class="price-container">
-                      <span class="price-icon"></span>
-                      <span class="price-value">Prix: 210 €</span>
-                  </div>
-                  <div class="button-group">
-                      <button class="buy-btn">
-                          <span class="btn-icon">🛒</span>
-                          Acheter
-                      </button>
-                      <button class="offer-btn">
-                          <span class="btn-icon">💬</span>
-                          Faire une offre
-                      </button>
-                  </div>
-                  <div class="lamp-description">
-                      <p>Une lampe au design organique qui s'inspire des formes naturelles. La Lampe 4 apporte une touche de modernité tout en conservant un aspect chaleureux.<p>Ses courbes douces et ses matériaux nobles en font une pièce unique qui s'intègre parfaitement dans tout intérieur contemporain.</p>
-                  </div>
-              </div>
-          </div>
+<script>
+let lamps = [];
+let currentLampIndex = 0;
+let currentImageIndex = 0;
 
-          <!-- Right Arrow -->
-          <div class="arrow-container right-arrow-container">
-              <button class="arrow-btn">›</button>
-              <div class="arrow-text"> Lampe suivante</div>
-          </div>
-      </div>
-  </main>
-
-  <footer class="site-footer">
-      <div class="footer-content">
-          <p>© 2025 Pacou-creations. Tous droits réservés</p>
-      </div>
-  </footer>
-
-  <script>
-    const lampTitles = ["Lampe 1", "Lampe 2", "Lampe 3"];
-    let currentLampIndex = 0;
-
-    function updateLampTitle() {
-      document.querySelector('.lamp-title').textContent = lampTitles[currentLampIndex];
+fetch('data/products.json?v=' + Date.now())
+  .then(res => res.json())
+  .then(data => {
+    lamps = data.products.filter(p => p.name);
+    console.log(`Loaded ${lamps.length} products with names`);
+    if (!lamps.length) {
+      document.getElementById('lamp-title').textContent = 'Aucun produit disponible';
+      document.getElementById('lamp-image').src = 'https://via.placeholder.com/300x400?text=No+Product';
+      document.getElementById('lamp-price').textContent = '';
+      document.getElementById('lamp-desc1').textContent = '';
+      return;
     }
+    const params = new URLSearchParams(window.location.search);
+    const lampId = parseInt(params.get('lamp'), 10);
+    const foundIndex = lamps.findIndex(p => p.id === lampId);
+    currentLampIndex = foundIndex !== -1 ? foundIndex : 0;
+    currentImageIndex = 0;
+    renderLamp();
+  })
+  .catch(err => {
+    console.error('Failed to load products.json:', err);
+    document.getElementById('lamp-title').textContent = 'Erreur de chargement';
+    document.getElementById('lamp-image').src = 'https://via.placeholder.com/300x400?text=Erreur';
+    document.getElementById('lamp-price').textContent = '';
+    document.getElementById('lamp-desc1').textContent = '';
+  });
 
-    document.getElementById('prev-lamp').onclick = () => {
-      currentLampIndex = (currentLampIndex - 1 + lampTitles.length) % lampTitles.length;
-      updateLampTitle();
-    };
+function renderLamp() {
+  if (!lamps.length) return;
 
-    document.getElementById('next-lamp').onclick = () => {
-      currentLampIndex = (currentLampIndex + 1) % lampTitles.length;
-      updateLampTitle();
-    };
+  const lamp = lamps[currentLampIndex];
+  const title = document.getElementById('lamp-title');
+  const image = document.getElementById('lamp-image');
+  const price = document.getElementById('lamp-price');
+  const desc1 = document.getElementById('lamp-desc1');
+  const buyButton = document.querySelector('button[style*="background: #4CAF50"]');
 
-    updateLampTitle();
-  </script>
+  title.textContent = lamp.name || 'Lampe';
+  if (lamp.images && lamp.images.length > 0) {
+    currentImageIndex = currentImageIndex % lamp.images.length;
+    image.src = lamp.images[currentImageIndex];
+  } else {
+    image.src = 'https://via.placeholder.com/300x400?text=No+Image';
+  }
+  price.textContent = lamp.price ? `Prix: ${lamp.price} €` : '';
+  desc1.textContent = lamp.description || 'Description à venir.';
 
-  <script src="catalog.js"></script>
-</body>
-              </div>
-          </div>
+  if (lamp.price && lamp.price > 0) {
+    buyButton.style.display = '';
+  } else {
+    buyButton.style.display = 'none';
+  }
+}
 
-          <!-- Right Arrow -->
-          <div class="arrow-container right-arrow-container">
-              <button class="arrow-btn">›</button>
-              <div class="arrow-text"> Lampe suivante</div>
-          </div>
-      </div>
-  </main>
+document.getElementById('prev-img').onclick = () => {
+  const lamp = lamps[currentLampIndex];
+  if (!lamp.images || lamp.images.length === 0) return;
+  currentImageIndex = (currentImageIndex - 1 + lamp.images.length) % lamp.images.length;
+  renderLamp();
+};
 
-  <footer class="site-footer">
-      <div class="footer-content">
-          <p>© 2025 Pacou-creations. Tous droits réservés</p>
-      </div>
-  </footer>
+document.getElementById('next-img').onclick = () => {
+  const lamp = lamps[currentLampIndex];
+  if (!lamp.images || lamp.images.length === 0) return;
+  currentImageIndex = (currentImageIndex + 1) % lamp.images.length;
+  renderLamp();
+};
 
-  <script src="catalog.js"></script>
-</body>
-</html>
+document.getElementById('prev-lamp').onclick = () => {  if (!lamps.length) return;
+  currentLampIndex = (currentLampIndex - 1 + lamps.length) % lamps.length;
+  currentImageIndex = 0;
+  renderLamp();
+};
+
+document.getElementById('next-lamp').onclick = () => {
+  if (!lamps.length) return;
+  currentLampIndex = (currentLampIndex + 1) % lamps.length;
+  currentImageIndex = 0;
+  renderLamp();
+};
+</script>
