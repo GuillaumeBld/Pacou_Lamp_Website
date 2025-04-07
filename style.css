@@ -4,6 +4,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;700&family=Lora:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&family=Inter&display=swap');
 
+/* Page transition fade effect */
+body.page-transition {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
 /* Lamp container and arrows positioning fix */
 #lamp-container {
   position: relative;
