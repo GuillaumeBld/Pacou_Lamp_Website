@@ -870,6 +870,74 @@ html {
   }
 }
 
+/* Catalog Card Design */
+
+.catalog-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 10px rgba(180, 199, 176, 0.5);
+}
+
+
+/* Price Style */
+.catalog-price {
+  font-weight: bold;
+  color: #a5db9b;
+  font-size: 1.2rem;
+  margin: 0.5rem 0;
+}
+
+/* Button Style */
+.catalog-btn {
+  background: #4CAF50;
+  color: white;
+  padding: 0.6rem 1.2rem;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+.catalog-btn:hover {
+  background: #45a049;
+}
+
+/* Sold Badge in Catalog Title */
+.sold-badge {
+  background-color: #b33a3a;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 2px 8px;
+  border-radius: 12px;
+  margin-left: 8px;
+  vertical-align: middle;
+  display: inline-block;
+  opacity: 0.9;
+}
+
+/* Sold Ribbon Badge */
+.product-card-container.sold::before,
+#lamp-container.sold::before {
+  content: "VENDU";
+  position: absolute;
+  top: 10px;
+  left: -20px;
+  background: #b33a3a;
+  color: white;
+  padding: 5px 15px;
+  transform: rotate(-45deg);
+  font-weight: bold;
+  font-size: 12px;
+  opacity: 0.85;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
+  border-radius: 4px;
+}
+
+.product-card-container.sold img {
+  filter: grayscale(70%) brightness(90%);
+}
+
 /* Fullscreen Image Viewer */
 .fs-overlay {
   position: fixed;

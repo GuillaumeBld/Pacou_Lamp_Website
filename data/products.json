@@ -4,41 +4,190 @@
       "id": 1,
       "name": "Lampe 1",
       "price": 500,
-      "originalPrice": 500,
-      "description": "Lampe faite à partir d'un tronc de bois flotté de plus de 2m de hauteur. Vendu avec ou sans abat-jour",
+      "status": "Disponible",
       "images": ["assets/Lamps/lampe-1.jpg"],
-      "details": ["Bois de chêne massif", "Hauteur: 200cm", "avec ou sans abat-jour", "Fait main en France"],
-      "colors": [{"name": "Chêne naturel", "value": "#8B4513"}, {"name": "Chêne foncé", "value": "#5D4037"}, {"name": "Chêne clair", "value": "#D2B48C"}],
-      "badge": "Nouveau",
-      "category": "rustic",
-      "datePosted": "2025-04-05"
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
     },
     {
       "id": 2,
       "name": "Lampe 2",
       "price": 450,
-      "description": "",
+      "status": "Disponible",
       "images": ["assets/Lamps/lampe-2.jpg"],
-      "details": ["Bois de noyer", "Hauteur: 40cm", "Ampoule LED incluse", "Fait main en France"],
-      "colors": [{"name": "Noyer naturel", "value": "#795548"}, {"name": "Noyer foncé", "value": "#5D4037"}],
-      "rating": 4.0,
-      "reviewCount": 24,
-      "badge": "Best-seller",
-      "category": "modern",
-      "datePosted": "2025-04-05"
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
     },
     {
       "id": 3,
       "name": "Lampe 3",
-      "sold": 250,
-      "description": "Style rétro avec patine artisanale",
+      "price": 250,
+      "status": "Vendu",
       "images": ["assets/Lamps/lampe-3.jpg"],
-      "details": ["Bois de pin recyclé", "Hauteur: 50cm", "Ampoule LED incluse", "Fait main en France"],
-      "colors": [{"name": "Pin vieilli", "value": "#8B4513"}, {"name": "Pin clair", "value": "#D2B48C"}],
-      "rating": 4.2,
-      "reviewCount": 18,
-      "category": "3",
-      "datePosted": "2025-04-05"
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 4,
+      "name": "Lampe 4",
+      "price": 200,
+      "status": "Vendu",
+      "images": ["assets/Lamps/lampe-4.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 5,
+      "name": "Lampe 5",
+      "price": 200,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-5.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 6,
+      "name": "Lampe 6",
+      "price": 250,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-6.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 7,
+      "name": "Lampe 7",
+      "price": 0,
+      "status": "retire",
+      "images": ["assets/Lamps/lampe-7.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 8,
+      "name": "Lampe 8",
+      "price": 250,
+      "status": "Vendu",
+      "images": ["assets/Lamps/lampe-8.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 9,
+      "name": "Lampe 9",
+      "price": 60,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-9.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 10,
+      "name": "Lampe 10",
+      "price": 0,
+      "status": "retire",
+      "images": ["assets/Lamps/lampe-10.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 11,
+      "name": "Lampe 11",
+      "price": 200,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-11.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 12,
+      "name": "Lampe 12",
+      "price": 150,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-12.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 13,
+      "name": "Lampe 13",
+      "price": 0,
+      "status": "retire",
+      "images": ["assets/Lamps/lampe-13.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 14,
+      "name": "Lampe 14",
+      "price": 80,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-14.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 15,
+      "name": "Lampe 15",
+      "price": 0,
+      "status": "retire",
+      "images": ["assets/Lamps/lampe-15.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 16,
+      "name": "Lampe 16",
+      "price": 150,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-16.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 18,
+      "name": "Lampe 18",
+      "price": 0,
+      "status": "retire",
+      "images": ["assets/Lamps/lampe-18.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 19,
+      "name": "Lampe 19",
+      "price": 180,
+      "status": "Vendu",
+      "images": ["assets/Lamps/lampe-19.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 20,
+      "name": "Lampe 20",
+      "price": 180,
+      "status": "Vendu",
+      "images": ["assets/Lamps/lampe-20.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 21,
+      "name": "Lampe 21",
+      "price": 200,
+      "status": "Vendu",
+      "images": ["assets/Lamps/lampe-21.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
+    },
+    {
+      "id": 22,
+      "name": "Lampe 22",
+      "price": 120,
+      "status": "Disponible",
+      "images": ["assets/Lamps/lampe-22.jpg"],
+      "description": "Description à venir.",
+      "details": ["Détails à venir"]
     }
   ]
 }

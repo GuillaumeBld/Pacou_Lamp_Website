@@ -105,7 +105,14 @@ function renderLamp() {
     const prevImgBtn = document.getElementById('prev-img');
     const nextImgBtn = document.getElementById('next-img');
 
-    title.textContent = lamp.name || 'Lampe';
+    const container = document.getElementById('lamp-container');
+    if (lamp.status === 'Vendu') {
+      container.classList.add('sold');
+    } else {
+      container.classList.remove('sold');
+    }
+
+    title.innerHTML = lamp.name || 'Lampe';
 
     if (lamp.images && lamp.images.length > 0) {
       currentImageIndex = currentImageIndex % lamp.images.length;
@@ -127,10 +134,18 @@ function renderLamp() {
     price.textContent = lamp.price ? `Prix: ${lamp.price} €` : '';
     desc1.textContent = lamp.description || 'Description à venir.';
 
-    if (lamp.price && lamp.price > 0) {
+    if (lamp.status === 'Vendu') {
+      buyButton.style.display = 'none';
+      const offerButton = document.querySelector('button[style*="background: #ccc"]');
+      if (offerButton) offerButton.style.display = 'none';
+    } else if (lamp.price && lamp.price > 0) {
       buyButton.style.display = '';
+      const offerButton = document.querySelector('button[style*="background: #ccc"]');
+      if (offerButton) offerButton.style.display = '';
     } else {
       buyButton.style.display = 'none';
+      const offerButton = document.querySelector('button[style*="background: #ccc"]');
+      if (offerButton) offerButton.style.display = 'none';
     }
 
     container.classList.remove('fade');
