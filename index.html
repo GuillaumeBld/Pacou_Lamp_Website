@@ -12,6 +12,7 @@
     <link rel="preload" as="image" href="https://pacou-creations.com/assets/images/cascade-bg.jpg">
     <!-- Main Stylesheet -->
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="assets/css/catalog.css">
     
     <script type="module" src="https://unpkg.com/@google/model-viewer@4.0.0/dist/model-viewer.min.js"></script>
     <script>
@@ -410,84 +411,7 @@ input[type="email"] {
 </script>
 <div id="product-grid" style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; padding:1rem;"></div>
 
-<script>
-let allProducts = [];
-
-function renderProducts(products) {
-  const grid = document.getElementById('product-grid');
-  grid.innerHTML = "";
-  products.forEach(p => {
-    const div = document.createElement('div');
-    div.style.background = 'rgba(255,255,255,0.05)';
-    div.style.backdropFilter = 'blur(8px)';
-    div.style.borderRadius = '12px';
-    div.style.padding = '1rem';
-    div.style.textAlign = 'center';
-    const container = document.createElement('div');
-    if (p.status === 'Vendu') {
-      container.className = 'product-card-container sold';
-    } else {
-      container.className = 'catalog-card available';
-    }
-
-    div.innerHTML = `
-      <a href="catalog.html?lamp=${p.id}" style="text-decoration:none; color:inherit;">
-        <img src="${(p.images && p.images[0]) ? p.images[0] : 'https://via.placeholder.com/200x250?text=No+Image'}" alt="${p.name}" class="catalog-img" style="max-width:100%; border-radius:8px;">
-        <h3>${p.name}</h3>
-        <p class="catalog-price">${p.price ? p.price + ' €' : ''}</p>
-        <button class="catalog-btn">Découvrir</button>
-      </a>
-    `;
-    container.appendChild(div);
-    grid.appendChild(container);
-  });
-}
-
-function applyFilterAndSort() {
-  const filter = document.querySelector('.filter-btn.active')?.dataset.filter || 'all';
-  const sort = document.getElementById('sort-select').value;
-  let filtered = allProducts.filter(p => p.status !== 'retire' && p.status !== 'removed');
-
-  if (filter !== 'all') {
-    filtered = filtered.filter(p => p.status === filter);
-  }
-
-  switch(sort) {
-    case 'price-asc':
-      filtered.sort((a,b) => (a.price||0) - (b.price||0));
-      break;
-    case 'price-desc':
-      filtered.sort((a,b) => (b.price||0) - (a.price||0));
-      break;
-    case 'name-asc':
-      filtered.sort((a,b) => (a.name||'').localeCompare(b.name||''));
-      break;
-    case 'name-desc':
-      filtered.sort((a,b) => (b.name||'').localeCompare(a.name||''));
-      break;
-  }
-
-  renderProducts(filtered);
-}
-
-fetch('data/products.json?v=' + Date.now())
-  .then(res => res.json())
-  .then(data => {
-    allProducts = data.products.filter(p => p.name);
-    applyFilterAndSort();
-  })
-  .catch(err => console.error("Error loading products.json:", err));
-
-document.addEventListener('click', e => {
-  if (e.target.classList.contains('filter-btn')) {
-    document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-    e.target.classList.add('active');
-    applyFilterAndSort();
-  }
-});
-
-document.getElementById('sort-select').addEventListener('change', applyFilterAndSort);
-</script>
+<script src="catalog.js"></script>
 </body>
 <script src="script.js"></script>
 </html>

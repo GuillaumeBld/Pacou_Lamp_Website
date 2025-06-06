@@ -1,0 +1,20 @@
+.card {
+  max-width: 300px;
+  flex-basis: 100%;
+  position: relative;
+}
+.card img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.badge {
+  position: absolute;
+  top: 12px;
+  left: -40px;
+  transform: rotate(-45deg);
+  background: #d00;
+  color: #fff;
+  padding: 4px 50px;
+  font-size: 0.8rem;
+}
