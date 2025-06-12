@@ -44,7 +44,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           badge.textContent = 'SOLD';
         } else if (lamp.status === 'sale') {
           badge.textContent = 'SALE';
-          badge.style.background = '#f60';
+          badge.style.background = '#4CAF50';
         }
         card.appendChild(badge);
       }
