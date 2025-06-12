@@ -5,16 +5,26 @@
     <title>Content Manager</title>
   </head>
   <body>
-    <a id="login-link" href="#" onclick="netlifyIdentity.open()" style="display:none;">Login</a>
+    <button id="login-btn" style="
+      display:none;
+      position:fixed;
+      bottom:1rem;
+      right:1rem;
+      border-radius:50%;
+      padding:0.5rem 0.6rem;
+      font-size:1.5rem;">🔑</button>
     <!-- Netlify Identity script -->
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
       if (window.netlifyIdentity) {
-        window.netlifyIdentity.on("init", user => {
-          if (!user) {
-            document.getElementById("login-link").style.display = "block";
-            window.netlifyIdentity.on("login", () => document.location.href = "/admin/");
-          }
+        const btn = document.getElementById("login-btn");
+        if (!window.netlifyIdentity.currentUser()) {
+          btn.style.display = "block";
+        }
+        btn.addEventListener("click", () => netlifyIdentity.open("login"));
+        window.netlifyIdentity.on("login", () => {
+          btn.style.display = "none";
+          document.location.href = "/admin/";
         });
       }
     </script>
