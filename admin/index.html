@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Content Manager</title>
+  </head>
+  <body>
+    <a id="login-link" href="#" onclick="netlifyIdentity.open()" style="display:none;">Login</a>
+    <!-- Netlify Identity script -->
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            document.getElementById("login-link").style.display = "block";
+            window.netlifyIdentity.on("login", () => document.location.href = "/admin/");
+          }
+        });
+      }
+    </script>
+    <!-- Netlify CMS script -->
+    <script src="https://unpkg.com/netlify-cms@^3/dist/netlify-cms.js"></script>
+  </body>
+</html>

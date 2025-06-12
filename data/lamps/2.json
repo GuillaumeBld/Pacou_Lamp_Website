@@ -1,0 +1,8 @@
+{
+  "id": "2",
+  "name": "Lampe 2",
+  "price": 450,
+  "status": "sale",
+  "image": "assets/Lamps/lampe-2.jpg",
+  "description": "Description à venir."
+}

@@ -1,0 +1,21 @@
+backend:
+  name: github
+  repo: GuillaumeBld/Pacou_Lamp_Website
+  branch: main
+site_url: https://example.com
+logo_url: /assets/logos/logo2.png
+media_folder: "assets"
+public_folder: "/assets"
+collections:
+  - name: "lamps"
+    label: "Lamps"
+    folder: "data/lamps"
+    create: true
+    format: "json"
+    fields:
+      - {name: id, label: ID, widget: string}
+      - {name: name, label: Name, widget: string}
+      - {name: price, label: Price, widget: number}
+      - {name: status, label: Status, widget: select, options: ["sale","sold"]}
+      - {name: image, label: Image, widget: image}
+      - {name: description, label: Description, widget: text}
