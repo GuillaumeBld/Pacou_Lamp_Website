@@ -11,10 +11,36 @@
 .badge {
   position: absolute;
   top: 12px;
-  left: -40px;
-  transform: rotate(-45deg);
+  left: 12px;
   background: #d00;
   color: #fff;
-  padding: 4px 50px;
+  padding: 4px 12px;
   font-size: 0.8rem;
+  font-weight: bold;
+  border-radius: 999px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.badge::before,
+.badge::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 8px;
+  height: 8px;
+  background: #fff;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
+
+.badge::before {
+  left: -4px;
+}
+
+.badge::after {
+  right: -4px;
+}
+
+.badge.sale {
+  background: #4CAF50;
 }
