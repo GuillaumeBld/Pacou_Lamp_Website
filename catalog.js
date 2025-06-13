@@ -41,10 +41,10 @@ document.addEventListener('DOMContentLoaded', async () => {
         const badge = document.createElement('span');
         badge.className = 'badge';
         if (lamp.status === 'sold') {
-          badge.textContent = 'SOLD';
+          badge.textContent = 'VENDU';
         } else if (lamp.status === 'sale') {
-          badge.textContent = 'SALE';
-          badge.style.background = '#4CAF50';
+          badge.textContent = 'SOLDE';
+          badge.classList.add('sale');
         }
         card.appendChild(badge);
       }
